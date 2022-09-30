@@ -13,6 +13,9 @@ public class Player {
 
     // build 1-1 relationship unidirectional with player profile object into player
     // and we are setting profile id with referenced column id of playerProfile
+    /*
+        (UniDirectional 1-1) because player have access of profile but profile doesn't have.
+    */
     // cascade will try to reflect all changes in Player entity will reflect in PlayerProfile class
 
     @OneToOne(cascade = CascadeType.ALL)

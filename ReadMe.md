@@ -17,6 +17,12 @@
 
 ### AddPlayerWithProfileObject
 ![http://http://localhost:8080/h2-console](assets/7.PNG)
+```
+Pre-Request:
+ var name = pm.request.body;
+ const obj = JSON.parse(name.raw);
+ pm.environment.set("instaPlayer_ProfileRandom",`${obj.name}-Profile_${Date.now().toString().substring(1,5)}@myDomain.co.uk`);
+```
 
 ### GetPlayerById
 ![http://http://localhost:8080/h2-console](assets/8.PNG)
@@ -31,22 +37,46 @@
 
 ### AddPlayerProfile
 ![http://http://localhost:8080/h2-console](assets/11.PNG)
+```
+Pre-Request:
+ pm.environment.set("instaProfileRandom", `OnlyProfileWithoutPlayer_${Date.now()}@myDomain.co.uk`)
+```
 
 ### GetPlayerProfileById
 ![http://http://localhost:8080/h2-console](assets/12.PNG)
 
 ### DeletePlayerProfileById
 ![http://http://localhost:8080/h2-console](assets/13.PNG)
+```
+If Profile is assign to any player then we can't delete it.
+but If profile is not assign then we can.
+```
 
 
 ### ----------------------------------------------------
 
 ### Add Player Without Player
 ![http://http://localhost:8080/h2-console](assets/14.PNG)
+```
+Pre-Request:
+ var name = pm.request.body;
+ const obj = JSON.parse(name.raw);
+ pm.environment.set("instaPlayer_ProfileRandom",`${obj.name}-Profile_${Date.now().toString().substring(1,5)}@myDomain.co.uk`);
 
+Test:
+ var id = pm.response.json();
+ pm.environment.set("generatedId-Player",id.id);
+```
 ### Add Profile
 ![http://http://localhost:8080/h2-console](assets/15.PNG)
+```
+Pre-Request:
+ pm.environment.set("instaProfileRandom", `OnlyProfileWithoutPlayer_${Date.now()}@myDomain.co.uk`)
 
+Test:
+ var id = pm.response.json();
+ pm.environment.set("generatedId-Profile",id.id);
+```
 ## Assign Profile to a Player
 ![http://http://localhost:8080/h2-console](assets/16.PNG)
 

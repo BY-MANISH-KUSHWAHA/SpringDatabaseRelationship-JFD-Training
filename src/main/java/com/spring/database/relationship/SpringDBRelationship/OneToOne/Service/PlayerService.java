@@ -37,7 +37,7 @@ public class PlayerService {
     }
 
     public Player assignProfile(int id, PlayerProfile profile){
-
+        // We just take id{player} and profile_id and find player by its id and assign profile.
         Player player = repo.findById(id).get();
 
         player.setPlayerProfile(profile);

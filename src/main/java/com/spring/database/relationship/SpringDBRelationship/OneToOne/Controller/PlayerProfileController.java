@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/playerProfiles")
+@RequestMapping("/playerProfiles") // default url
 public class PlayerProfileController {
     @Autowired
     PlayerProfileService service;
 
-    @GetMapping
+    @GetMapping // take the default url
     public List<PlayerProfile> getAllPlayerProfile(){
         return service.getAllPlayerProfile();
     }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/players")
+@RequestMapping("/players") // Default Start Url
 public class PlayerController {
     @Autowired
     PlayerService service;
@@ -18,7 +18,7 @@ public class PlayerController {
     @Autowired
     PlayerProfileService profileService;
 
-    @GetMapping
+    @GetMapping // take default url.
     public List<Player> getAllPlayer(){
         return service.getAllPlayer();
     }
@@ -44,6 +44,7 @@ public class PlayerController {
     @PutMapping("/{id}/profile/{profile_id}") // This from Player Entity
     public Player assignDetails(@PathVariable int id, @PathVariable int profile_id){
         // UniDirection
+        // Using profileService we fetch profile by profile_id and send it to assigning.
         PlayerProfile playerProfile = profileService.getPlayerProfileByID(profile_id);
         System.out.println();
         return service.assignProfile(id,playerProfile);
