@@ -1,6 +1,7 @@
 package com.spring.database.relationship.SpringDBRelationship.OneToOne.Service;
 
 import com.spring.database.relationship.SpringDBRelationship.OneToOne.Entity.Player;
+import com.spring.database.relationship.SpringDBRelationship.OneToOne.Entity.PlayerProfile;
 import com.spring.database.relationship.SpringDBRelationship.OneToOne.Repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class PlayerService {
     public Player getPlayerByID(@PathVariable("id") int id){
         Optional<Player> player = repo.findById(id);
         if(player.isPresent())  return player.get();
-        else throw new RuntimeException("Payer with Id="+id+" not found.");
+        throw new RuntimeException("Payer with Id="+id+" not found.");
     }
 
     public Player addPlayer(Player player){
@@ -33,5 +34,15 @@ public class PlayerService {
         Optional<Player> p = repo.findById(id);
         if(p.isEmpty())  throw new RuntimeException("Payer with Id="+id+" not found.");
         repo.delete(p.get());
+    }
+
+    public Player assignProfile(int id, PlayerProfile profile){
+
+        Player player = repo.findById(id).get();
+
+        player.setPlayerProfile(profile);
+
+        return repo.save(player);
+
     }
 }

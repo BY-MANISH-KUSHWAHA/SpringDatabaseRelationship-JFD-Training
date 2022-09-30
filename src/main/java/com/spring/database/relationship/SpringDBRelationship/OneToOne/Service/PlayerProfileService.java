@@ -21,7 +21,7 @@ public class PlayerProfileService {
     public PlayerProfile getPlayerProfileByID(@PathVariable("id") int id){
         Optional<PlayerProfile> playerProfile = repo.findById(id);
         if(playerProfile.isPresent())  return playerProfile.get();
-        else throw new RuntimeException("PayerProfile with Id="+id+" not found.");
+        throw new RuntimeException("PayerProfile with Id="+id+" not found.");
     }
 
     public PlayerProfile addPlayerProfile(PlayerProfile playerProfile){
@@ -33,4 +33,6 @@ public class PlayerProfileService {
         if(p.isEmpty())  throw new RuntimeException("PayerProfile with Id="+id+" not found.");
         repo.delete(p.get());
     }
+
+
 }

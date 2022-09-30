@@ -11,8 +11,10 @@ public class Player {
     @GeneratedValue
     private int id; // key for joint
 
-    // build 1-1 relationship
+    // build 1-1 relationship unidirectional with player profile object into player
+    // and we are setting profile id with referenced column id of playerProfile
     // cascade will try to reflect all changes in Player entity will reflect in PlayerProfile class
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id",referencedColumnName = "id")
     private PlayerProfile playerProfile;
