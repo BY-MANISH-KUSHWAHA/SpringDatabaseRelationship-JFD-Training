@@ -1,11 +1,10 @@
 package com.spring.database.relationship.SpringDBRelationship.OneToMany.Controller;
 
-import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Registeration;
+import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Registration;
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Tournament;
-import com.spring.database.relationship.SpringDBRelationship.OneToMany.Service.RegisterationService;
+import com.spring.database.relationship.SpringDBRelationship.OneToMany.Service.RegistrationService;
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Service.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class TournamentController {
     TournamentService tournamentService;
 
     @Autowired
-    RegisterationService registerationService;
+    RegistrationService registerationService;
 
     @GetMapping // take default url.
     public List<Tournament> getAllTournaments(){
@@ -40,9 +39,9 @@ public class TournamentController {
         tournamentService.deleteTournamentById(id);
     }
 
-    @PutMapping("/{id}/registeration/{reg_id}") // This from Player Entity
-    public Tournament assignRegisteration(@PathVariable int id, @PathVariable int reg_id){
-        Registeration reg = registerationService.getRegisterationById(reg_id);
+    @PutMapping("/{id}/registration/{reg_id}") // This from Player Entity
+    public Tournament assignRegistration(@PathVariable int id, @PathVariable int reg_id){
+        Registration reg = registerationService.getRegistrationById(reg_id);
         return tournamentService.addRegisterationById(id,reg);
     }
 

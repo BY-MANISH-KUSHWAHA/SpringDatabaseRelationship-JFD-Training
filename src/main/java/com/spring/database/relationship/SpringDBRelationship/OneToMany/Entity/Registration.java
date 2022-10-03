@@ -6,16 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Registeration {
+public class Registration {
 
     @Id
     @GeneratedValue
     private int id;
 
-    public Registeration() {
+    public Registration() {
     }
 
-    public Registeration(int id) {
+    public Registration(int id) {
         this.id = id;
     }
 

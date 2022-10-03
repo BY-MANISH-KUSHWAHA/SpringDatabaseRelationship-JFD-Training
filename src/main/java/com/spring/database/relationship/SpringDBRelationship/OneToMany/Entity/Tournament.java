@@ -17,15 +17,15 @@ public class Tournament {
     public Tournament() {
     }
 
-    public List<Registeration> getRegisterations() {
+    public List<Registration> getRegisterations() {
         return registerations;
     }
 
-    public void setRegisterations(List<Registeration> registerations) {
+    public void setRegisterations(List<Registration> registerations) {
         this.registerations = registerations;
     }
 
-    public Tournament(int id, String name, String location, List<Registeration> registerations) {
+    public Tournament(int id, String name, String location, List<Registration> registerations) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -58,15 +58,15 @@ public class Tournament {
 
     @OneToMany(cascade = CascadeType.ALL) // If somechange happen then it will also call FK Registration class for updates.
     @JoinColumn(name="tournament_id", referencedColumnName = "id")
-    private List<Registeration> registerations = new ArrayList<>();
+    private List<Registration> registerations = new ArrayList<>();
 
 
     // setup One to many relationship
-    public void addRegistration(Registeration registeration){
+    public void addRegistration(Registration registeration){
         registerations.add(registeration);
     }
 
-    public void deleteRegistration(Registeration registeration){
+    public void deleteRegistration(Registration registeration){
         if(!registerations.isEmpty()){
             registerations.remove(registeration);
         }

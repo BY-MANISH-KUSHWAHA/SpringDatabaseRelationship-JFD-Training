@@ -1,14 +1,13 @@
 package com.spring.database.relationship.SpringDBRelationship.OneToMany.Service;
 
 
-import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Registeration;
+import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Registration;
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Tournament;
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TournamentService {
@@ -31,13 +30,13 @@ public class TournamentService {
         tournamentRepository.deleteById(id);
     }
 
-    public Tournament addRegisterationById(int id , Registeration registeration){
+    public Tournament addRegisterationById(int id , Registration registeration){
         Tournament tournament = tournamentRepository.findById(id).get();
         tournament.addRegistration(registeration);
         return tournamentRepository.save(tournament);
     }
 
-    public Tournament deleteRegisterationById(int id , Registeration registeration){
+    public Tournament deleteRegisterationById(int id , Registration registeration){
         Tournament tournament = tournamentRepository.findById(id).get();
         tournament.deleteRegistration(registeration);
         return tournamentRepository.save(tournament);
