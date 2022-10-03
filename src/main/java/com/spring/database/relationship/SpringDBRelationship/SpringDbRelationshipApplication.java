@@ -25,3 +25,6 @@ public class SpringDbRelationshipApplication {
 // DAO Layer [Database Communication]
 // 1. Entity => Hibernate Trying to create tables, alter tables
 // 2. Repository => JAP Repository => CRUD Operation
+
+// ONE-TO-MANY BIDIRECTIONAL
+// Tournament => Registration => Player => PlayerProfile
