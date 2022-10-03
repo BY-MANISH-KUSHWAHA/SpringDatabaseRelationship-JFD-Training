@@ -11,3 +11,17 @@ public class SpringDbRelationshipApplication {
 	}
 
 }
+
+
+
+
+// Web Layer
+//RestController => View => HTTP Methods => @Autowired Service => Method Implementations
+//whenever a request shows up
+
+// Business Layer
+//Service layer => DAO Layer => Repository as Dependency Injection => Method Implementation on Service
+
+// DAO Layer [Database Communication]
+// 1. Entity => Hibernate Trying to create tables, alter tables
+// 2. Repository => JAP Repository => CRUD Operation
