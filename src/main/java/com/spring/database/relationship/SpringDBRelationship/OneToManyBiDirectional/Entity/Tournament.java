@@ -1,4 +1,4 @@
-package com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity;
+package com.spring.database.relationship.SpringDBRelationship.OneToManyBiDirectional.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;

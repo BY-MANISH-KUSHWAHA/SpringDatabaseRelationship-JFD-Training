@@ -1,4 +1,4 @@
-package com.spring.database.relationship.SpringDBRelationship.OneToMany.Controller;
+package com.spring.database.relationship.SpringDBRelationship.OneToManyBiDirectional.Controller;
 
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Registration;
 import com.spring.database.relationship.SpringDBRelationship.OneToMany.Entity.Tournament;
